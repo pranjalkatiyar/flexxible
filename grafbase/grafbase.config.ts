@@ -29,7 +29,7 @@ const User = g
   }) .auth((rules) => {
     rules.public().read();
   });
-  
+
 //@ts-ignore
 const Project = g
   .model("Project", {
@@ -41,7 +41,7 @@ const Project = g
     category: g.string().search(),
     createdBy: g.relation(() => User),
   })  .auth((rules) => {
-    rules.private().read(), rules.private().create().update().delete();
+    rules.public().read(), rules.private().create().update().delete();
   });
 
 
